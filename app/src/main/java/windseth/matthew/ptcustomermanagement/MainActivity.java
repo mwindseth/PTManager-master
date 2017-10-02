@@ -1,5 +1,6 @@
 package windseth.matthew.ptcustomermanagement;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
@@ -10,17 +11,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SingleFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Load Fragment
-        FragmentManager fm = getSupportFragmentManager();
-
+    protected Fragment createFragment() {
+        return new CustomerFragment();
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
