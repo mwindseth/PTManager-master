@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.FragmentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class CustomerLab {
         mCustomers = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             Customer customer = new Customer();
-            customer.setTitle("Customer #" + i);
+            customer.setName("Customer #" + i);
             mCustomers.add(customer);
 
         }
@@ -110,6 +111,9 @@ public class CustomerLab {
         return values;
     }
 
-
+    public File getPhotoFile(Customer customer) {
+        File filesDir = mContext.getFilesDir();
+        return new File(filesDir, customer.getPhotoFilename());
+    }
 
 }

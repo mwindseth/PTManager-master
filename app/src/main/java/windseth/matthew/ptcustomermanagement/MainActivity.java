@@ -3,6 +3,7 @@ package windseth.matthew.ptcustomermanagement;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,22 @@ public class MainActivity extends SingleFragmentActivity {
             this.finish();
             return true;
         }
+        if (id==R.id.take_photo) {
+            Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+            boolean canTakePhoto = mPhotoFile != null &&
+                    captureImage.resolveActivity(packageManager) != null;
+
+
+
+
+
+
+        }
         return true;
     }
+
+
+    }
+
 }
